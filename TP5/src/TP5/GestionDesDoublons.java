@@ -1,0 +1,35 @@
+package TP5;
+import java.util.*;
+public class GestionDesDoublons {
+    public static Set<String> trouverMotsUniques(String[] mots) {
+        Set<String> motsUniques = new HashSet<String>();
+        for (String mot : mots) {
+            motsUniques.add(mot);}
+        return motsUniques;}
+    public static void afficherSet(Set<String> set) {
+        System.out.print("{ ");
+        int count = 0;
+        for (String element : set) {
+            if (count > 0) { System.out.print(", "); }
+            System.out.print(element);count++; }System.out.println(" }");}
+    public static void main(String[] args) {
+        String[] tableauMots = {
+            "java",  "tp",  "collection",  "java", "set", "collection","hashset","tp","java"};
+        System.out.println("=== Tableau original ===");
+        System.out.print("Mots: [");
+        for (int i = 0; i < tableauMots.length; i++) {if (i > 0) System.out.print(", "); System.out.print(tableauMots[i]);}
+        System.out.println("]");
+        System.out.println("Nombre total de mots: " + tableauMots.length);
+        System.out.println("\n=== Recherche des mots uniques ===");
+        Set<String> motsUniques = trouverMotsUniques(tableauMots);
+        System.out.println("Nombre de mots uniques: " + motsUniques.size());
+        System.out.print("Mots uniques: ");
+        afficherSet(motsUniques);
+        System.out.println("\n=== Vérification ===");
+        System.out.println("Nombre de doublons éliminés: " + 
+            (tableauMots.length - motsUniques.size()));
+        System.out.println("\n=== Test avec un autre exemple ===");
+        String[] autreTableau = {"apple", "banana", "apple", "cherry", "banana", "apple"};
+        Set<String> autreMots = trouverMotsUniques(autreTableau);
+        System.out.println("Tableau: " + Arrays.toString(autreTableau));
+        System.out.println("Mots uniques (" + autreMots.size() + "): "); afficherSet(autreMots);}}

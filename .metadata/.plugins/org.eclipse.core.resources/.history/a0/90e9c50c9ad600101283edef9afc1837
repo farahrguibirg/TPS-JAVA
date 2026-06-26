@@ -1,0 +1,9 @@
+package TP5;
+
+public class TestSortedCollections {
+
+	public TestSortedCollections() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

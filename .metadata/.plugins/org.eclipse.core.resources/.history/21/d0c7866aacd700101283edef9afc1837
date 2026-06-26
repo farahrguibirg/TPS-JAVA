@@ -1,0 +1,31 @@
+package TP5;
+import java.util.*;
+class ComparaisonListes {
+    public static long mesurerTempsInsertion(List<Integer> liste, int nombreElements) {
+        long debut = System.currentTimeMillis();
+        
+        for (int i = 0; i < nombreElements; i++) {
+            liste.add(liste.size() / 2, i);
+        }
+        
+        long fin = System.currentTimeMillis();
+        return fin - debut;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("========== EXERCICE 4: Comparaison ArrayList vs LinkedList ==========");
+        int nombreElements = 10000; // Ajustez selon vos besoins
+        
+        List<Integer> arrayList = new ArrayList<>();
+        long tempsArrayList = mesurerTempsInsertion(arrayList, nombreElements);
+        
+        List<Integer> linkedList = new LinkedList<>();
+        long tempsLinkedList = mesurerTempsInsertion(linkedList, nombreElements);
+        
+        System.out.println("Temps ArrayList: " + tempsArrayList + " ms");
+        System.out.println("Temps LinkedList: " + tempsLinkedList + " ms");
+        System.out.println("\nCommentaire:");
+        System.out.println("LinkedList est plus efficace pour l'insertion au milieu car elle");
+        System.out.println("utilise des pointeurs, tandis qu'ArrayList doit déplacer les éléments.");
+    }
+}

@@ -1,0 +1,9 @@
+package TP5;
+
+public class ComparaisonListe {
+
+	public ComparaisonListe() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

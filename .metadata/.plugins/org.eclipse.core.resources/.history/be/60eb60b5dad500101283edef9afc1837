@@ -1,0 +1,9 @@
+package TP5;
+
+public class ImprimerCollection {
+
+	public ImprimerCollection() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

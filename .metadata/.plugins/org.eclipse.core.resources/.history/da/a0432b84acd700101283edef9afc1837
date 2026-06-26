@@ -1,0 +1,70 @@
+package TP5;
+import java.util.*;
+class EtudiantNotes {
+    private String nom;
+    private String matricule;
+    private List<Double> notes;
+    
+    public EtudiantNotes(String nom, String matricule) {
+        this.nom = nom;
+        this.matricule = matricule;
+        this.notes = new ArrayList<>();
+    }
+    
+    public void ajouterNote(double note) {
+        notes.add(note);
+    }
+    
+    public double calculerMoyenne() {
+        if (notes.isEmpty()) {
+            return 0.0;
+        }
+        
+        double somme = 0;
+        for (double note : notes) {
+            somme += note;
+        }
+        return somme / notes.size();
+    }
+    
+    public List<Double> obtenirNotesSuperieuresA(double seuil) {
+        List<Double> notesSupérieures = new ArrayList<>();
+        for (double note : notes) {
+            if (note > seuil) {
+                notesSupérieures.add(note);
+            }
+        }
+        return notesSupérieures;
+    }
+    
+    public void afficherStatistiques() {
+        System.out.println("\n=== Statistiques de l'étudiant ===");
+        System.out.println("Nom: " + nom);
+        System.out.println("Matricule: " + matricule);
+        System.out.println("Notes: " + notes);
+        System.out.println("Moyenne: " + String.format("%.2f", calculerMoyenne()));
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("========== EXERCICE 8: Gestion des Notes ==========");
+        
+        // Création d'un étudiant
+        EtudiantNotes etudiant = new EtudiantNotes("Jean Dupont", "M12345");
+        
+        // Ajout de notes
+        System.out.println("\nAjout de notes:");
+        etudiant.ajouterNote(12.5);
+        etudiant.ajouterNote(15.0);
+        etudiant.ajouterNote(9.5);
+        etudiant.ajouterNote(18.0);
+        System.out.println("4 notes ajoutées");
+        
+        // Affichage des statistiques
+        etudiant.afficherStatistiques();
+        
+        // Notes supérieures à un seuil
+        System.out.println("\nFiltrage des notes:");
+        List<Double> notesSupérieures = etudiant.obtenirNotesSuperieuresA(10.0);
+        System.out.println("Notes supérieures à 10.0: " + notesSupérieures);
+    }
+}

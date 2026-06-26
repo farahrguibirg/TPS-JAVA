@@ -1,0 +1,21 @@
+package TP5;
+import java.util.*;
+class TestSortedCollections {
+    public static void main(String[] args) {
+        SortedSet<Integer> sortedSet = new TreeSet<>();
+        sortedSet.add(5);
+        sortedSet.add(1);
+        sortedSet.add(8);
+        sortedSet.add(3);
+        System.out.println("SortedSet (ajouté: 5, 1, 8, 3)");
+        System.out.println("Résultat trié automatiquement: " + sortedSet);
+        System.out.println("\nSortedMap:");
+        SortedMap<String, Integer> sortedMap = new TreeMap<>();
+        sortedMap.put("zebra", 100);
+        sortedMap.put("apple", 50);
+        sortedMap.put("mango", 75);
+        sortedMap.put("banana", 60);
+        System.out.println("Clés ajoutées: zebra, apple, mango, banana");
+        System.out.println("Résultat avec clés triées: " + sortedMap);
+    }
+}

@@ -1,0 +1,9 @@
+package TP5;
+
+public class FrequenceMots {
+
+	public FrequenceMots() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,8 @@
+package TP5;
+
+public class FrequenceMots {
+
+	public static Map<String,Integer> compterFrequence(String[] mots).{
+
+		
+}}

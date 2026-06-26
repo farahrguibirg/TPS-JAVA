@@ -1,0 +1,9 @@
+package TP5;
+
+public class EtudiantNotes {
+
+	public EtudiantNotes() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

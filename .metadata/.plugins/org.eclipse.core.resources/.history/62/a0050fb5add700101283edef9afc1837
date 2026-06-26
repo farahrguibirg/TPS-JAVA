@@ -1,0 +1,63 @@
+package TP5;
+import java.util.*;
+class Etudiant implements Comparable<Etudiant> {
+    private String nom;
+    private int moyenne;
+    
+    public Etudiant(String nom, int moyenne) {
+        this.nom = nom;
+        this.moyenne = moyenne;
+    }
+    
+    public String getNom() {
+        return nom;
+    }
+    
+    public int getMoyenne() {
+        return moyenne;
+    }
+    
+    @Override
+    public int compareTo(Etudiant autre) {
+        return Integer.compare(this.moyenne, autre.moyenne);
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Etudiant etudiant = (Etudiant) o;
+        return moyenne == etudiant.moyenne && nom.equals(etudiant.nom);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, moyenne);
+    }
+    
+    @Override
+    public String toString() {
+        return nom + " (moyenne: " + moyenne + ")";
+    }
+    
+    public static void main(String[] args) {
+        TreeMap<Etudiant, String> treeMap = new TreeMap<>();
+        treeMap.put(new Etudiant("Alice", 15), "Groupe A");
+        treeMap.put(new Etudiant("Bob", 12), "Groupe B");
+        treeMap.put(new Etudiant("Charlie", 18), "Groupe C");
+        treeMap.put(new Etudiant("Diana", 10), "Groupe D");
+        
+        System.out.println("TreeMap triée par moyenne:");
+        for (Map.Entry<Etudiant, String> entry : treeMap.entrySet()) {
+            System.out.println("  " + entry.getKey() + " -> " + entry.getValue());
+        }
+        System.out.println("\nTest HashSet avec étudiants égaux:");
+        HashSet<Etudiant> hashSet = new HashSet<>();
+        Etudiant e1 = new Etudiant("Eve", 14);
+        Etudiant e2 = new Etudiant("Eve", 14);
+        hashSet.add(e1);
+        hashSet.add(e2);
+        System.out.println("Taille du HashSet (devrait être 1): " + hashSet.size());
+        System.out.println("Contenu: " + hashSet);
+    }
+}
